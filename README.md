@@ -34,17 +34,7 @@ Lunges
 🔐 User login functionality
 🌐 Built with Streamlit and Streamlit-WebRTC
 
-🛠️ Technologies Used
-Technology	                                         Purpose
-Python	                                             Core application
-Streamlit	                                           Web application interface
-Streamlit-WebRTC	                                   Real-time webcam processing
-MediaPipe	                                           Pose landmark detection
-OpenCV	                                             Computer vision
-Groq	                                               LLM inference and TTS
-Llama / GPT-OSS	                                     AI coaching feedback
-Orpheus TTS	                                         Voice feedback
-SQLite	                                             Workout data storage
+
 
 📌 Future Improvements
 Real-time voice interruption and prioritization
