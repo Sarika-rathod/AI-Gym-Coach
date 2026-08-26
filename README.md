@@ -26,6 +26,7 @@ Biceps Curls
 Shoulder Press
 Lunges
 📊 Real-time exercise metrics and repetition tracking
+
 ⚠️ Detects common form issues
 🤖 AI-generated coaching feedback using Groq LLM
 🔊 Voice feedback using Groq Orpheus TTS
