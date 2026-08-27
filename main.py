@@ -8,7 +8,6 @@ from services.config.workout_config import EXERCISE_OPTIONS
 from services.ui.style_loader import load_css, inject_local_font, inject_webrtc_styles
 from services.persistence.exercise_repository import init_db
 from streamlit_webrtc import webrtc_streamer, WebRtcMode
-from aiortc import RTCConfiguration, RTCIceServer
 from services.vision.exercise_video_processor import VideoProcessorClass
 from services.tracking.metrics import sync_metrics_update
 from services.persistence.exercise_repository import get_users_exercises
@@ -17,13 +16,11 @@ from services.coaching.llm import LLMCoach
 from services.coaching.tts import TextToSpeech
 from services.coaching.voice_pipeline import VoicePipeline, autoplay_audio
 
-rtc_configuration = RTCConfiguration(
-    {
-        "iceServers": [
-            RTCIceServer(urls=["stun:stun.l.google.com:19302"])
-        ]
-    }
-)
+RTC_CONFIGURATION = {
+    "iceServers": [
+        {"urls": ["stun:stun.l.google.com:19302"]}
+    ]
+}
   
 def main():
     st.set_page_config(
@@ -208,7 +205,7 @@ def main():
         context = webrtc_streamer(
             key="gym-coach",
             mode=WebRtcMode.SENDRECV,
-            rtc_configuration=rtc_configuration,
+            rtc_configuration=RTC_CONFIGURATION,
             media_stream_constraints={
                 "video": True,
                 "audio": False,
