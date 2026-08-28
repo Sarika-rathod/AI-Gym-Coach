@@ -16,11 +16,6 @@ from services.coaching.llm import LLMCoach
 from services.coaching.tts import TextToSpeech
 from services.coaching.voice_pipeline import VoicePipeline, autoplay_audio
 
-RTC_CONFIGURATION = {
-    "iceServers": [
-        {"urls": ["stun:stun.l.google.com:19302"]}
-    ]
-}
   
 def main():
     st.set_page_config(
@@ -203,13 +198,15 @@ def main():
         )
     else:
         context = webrtc_streamer(
-            key="gym-coach",
+            key="exercise-analysis",
             mode=WebRtcMode.SENDRECV,
-            rtc_configuration=RTC_CONFIGURATION,
+            video_processor_factory=VideoProcessorClass,
+            rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
             media_stream_constraints={
                 "video": True,
-                "audio": False,
+                "audio": False
             },
+            async_processing=True
         )
 
         sync_metrics_update(context)
