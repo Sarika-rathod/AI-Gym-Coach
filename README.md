@@ -47,5 +47,3 @@ Mobile-friendly interface
 Cloud-based workout history
 Improved real-time audio playback
 
-⭐ Why I Built It
-I wanted to build a practical AI application that connects real-world visual input, structured analysis, LLM reasoning, and voice feedback in one system.
